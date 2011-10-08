@@ -1,0 +1,29 @@
+<% @page_title = 'Disable Celebrity' %>
+
+<%= form_for(:celebrity, :url => {:action => 'disabled', :id => @celebrity.id}) do |f| %>
+ 
+	<ul>						
+
+		<li class="clearfix"> 
+			
+		<p>Are you sure you want to delete this celebrity ...</p>
+		<p><%= @celebrity.first_name + ' ' + @celebrity.last_name %></p>
+
+			<div id="button">
+				<%= submit_tag "Disable Celebrity", :id => "button", :class => "button" %>
+			</div>
+
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Create a <%= link_to 'new celebrity', {:action => 'new'} %> or go back to
+<%= link_to 'all celebrities', {:action => 'list'} %>

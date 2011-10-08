@@ -1,0 +1,29 @@
+<% @page_title = 'New Menu' %>
+
+<%= form_for(:menu, :url => {:action => 'create'}) do |f| %>
+ 
+	<ul>						
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<li class="clearfix"> 
+			
+		<%#p id='mail_success' class='success'>Thank you. I'll get back to you as soon as possible.</p>
+		<p id='mail_fail' class='error'>Sorry, an error has occured. Please try again later.</p%>
+
+			<div id="button">
+				<%= submit_tag "Create Menu", :class => "button" %>
+			</div>
+		</li>
+
+	</ul>
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Go back to <%= link_to 'all menus', {:action => 'list'}, :class => 'action list' %>

@@ -1,0 +1,29 @@
+<% @page_title = "Enable #{@menu.name} ..." %>
+
+<%= form_for(:menu, :url => {:action => 'update', :id => @menu.id}) do |f| %>
+ 
+	<ul>						
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<li class="clearfix"> 
+			
+		<%#p id='mail_success' class='success'>Thank you. I'll get back to you as soon as possible.</p>
+		<p id='mail_fail' class='error'>Sorry, an error has occured. Please try again later.</p%>
+
+			<div id="button">
+				<%= submit_tag "Update Menu", :class => "button" %>
+			</div>
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+
+Create a <%= link_to 'new menu', {:action => 'new'} %> or go back to
+<%= link_to 'all menu', {:action => 'list'}, :class => 'action list' %>

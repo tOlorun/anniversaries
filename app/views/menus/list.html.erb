@@ -1,0 +1,67 @@
+<% @page_title = 'All Menus' %>
+
+<h1>Menus</h1>
+<% # rules="all" %>
+<% if !@menus.blank? %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Alias</th>
+      <th>Parent?</th>
+      <th>Child?</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @menus.each do |menu| %>
+    <tr>
+      <td>
+        <% if menu.status == 'enabled' %>
+          <%= link_to(menu.name, {:action => 'show', :id => menu.id}, :class => 'show') %>
+        <% else %>
+          <%= menu.name %>
+        <% end %>
+        <%#= message.last_name  + ' ' + message.first_name %>
+      </td>
+      <td><%= menu.order %></td>
+      <td><%= menu.alias %></td>
+      <td><%#= menu.parent %></td>
+      <td><%#= menu.child %></td>
+      <td><%= menu.status %></td>
+        <td class="actions">
+          <%#= link_to("Show", {:action => 'show', :id => message.id}, :class => 'action show') %>
+        </td>
+  <% if menu.status == 'enabled' %>
+        <td class="actions">
+          <%= link_to("Edit", {:action => 'edit', :id => menu.id}, :class => 'action edit') %>
+          <%#= link_to(image_tag("Aurelius/icons/icon_edit.png"), {:action => 'edit', :id => message.id}) %>
+        </td>
+        <td class="actions">
+          <%= link_to("Disable", {:action => 'disable', :id => menu.id}, :class => 'action disable') %>
+        </td>
+  <% else %>
+        <td class="actions">
+          <%= link_to("Enable", {:action => 'enable', :id => menu.id}, :class => 'action enable') %>
+        </td>
+  <% end %>
+    </tr>
+  <% end %>
+</tbody>
+<tfoot>
+</tfoot>
+</table>
+<% else %>
+<p>There are no menus</p>
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+
+Create <%= link_to 'New Menu', {:action => 'new'} %>

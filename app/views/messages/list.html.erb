@@ -1,0 +1,61 @@
+<% @page_title = 'All Mesages' %>
+
+<h1>Mesages</h1>
+<% # rules="all" %>
+<% if !@messages.blank? %>
+<table>
+  <thead>
+    <tr>
+      <th>Anniversary Type</th>
+      <th>Message Type</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @messages.each do |message| %>
+    <tr>
+      <td>
+        <% if message.status == 'enabled' %>
+          <%= link_to(message.anniversary_type, {:action => 'show', :id => message.id}, :class => 'show') %>
+        <% else %>
+          <%= message.anniversary_type %>
+        <% end %>
+        <%#= message.last_name  + ' ' + message.first_name %>
+      </td>
+      <td><%= message.message_type.capitalize %></td>
+      <td><%= message.status %></td>
+        <td class="actions">
+          <%#= link_to("Show", {:action => 'show', :id => message.id}, :class => 'action show') %>
+        </td>
+  <% if message.status == 'enabled' %>
+        <td class="actions">
+          <%= link_to("Edit", {:action => 'edit', :id => message.id}, :class => 'action edit') %>
+          <%#= link_to(image_tag("Aurelius/icons/icon_edit.png"), {:action => 'edit', :id => message.id}) %>
+        </td>
+        <td class="actions">
+          <%= link_to("Disable", {:action => 'disable', :id => message.id}, :class => 'action disable') %>
+        </td>
+  <% else %>
+        <td class="actions">
+          <%= link_to("Enable", {:action => 'enable', :id => message.id}, :class => 'action enable') %>
+        </td>
+  <% end %>
+    </tr>
+  <% end %>
+</tbody>
+<tfoot>
+</tfoot>
+</table>
+<% else %>
+<p>There are no messages</p>
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+
+Create <%= link_to 'New Message', {:action => 'new'} %>

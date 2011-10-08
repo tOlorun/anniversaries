@@ -1,0 +1,11 @@
+notes
+
+menu
+	id
+	name
+	display_name
+	permanent_link
+	route
+	parent
+	css_style
+	css_id

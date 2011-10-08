@@ -1,0 +1,34 @@
+<% @page_title = @message.message_type.capitalize + " for " + @message.anniversary_type.capitalize %>
+
+<ul id="show">
+
+	<li class="clearfix">
+		<label>Anniversary Type</label>
+		<span><%= @message.anniversary_type.capitalize %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Message Type</label>
+		<span><%= @message.message_type.capitalize %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Message</label>
+		<!-- <div class="textarea"><%= @message.message %></div> -->
+		<!-- <div class="textarea"><%= @message.message %></div> -->
+		<span class="textarea"><%= @message.message %></span>
+		<div class="clear"></div>
+	</li>
+
+</ul>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+You can <%= link_to("disable this message", {:action => 'disable', :id => @message.id}, :class => 'action disable') %> or<%= link_to("edit this message", {:action => 'edit', :id => @message.id}, :class => 'action edit') %> | Create a <%= link_to 'new message', {:action => 'new'} %> or go back to
+<%= link_to 'all messages', {:action => 'list'}, :class => 'action list' %>

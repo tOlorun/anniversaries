@@ -1,0 +1,28 @@
+<% @page_title = "Enable #{@message.message_type} Message for #{@message.anniversary_type} ..." %>
+
+<%= form_for(:message, :url => {:action => 'enabled', :id => @message.id}) do |f| %>
+ 
+	<ul>						
+
+		<li class="clearfix"> 
+			
+		<p>Are you sure you want to enable this <%= @message.message_type.capitalize + ' Message for ' + @message.anniversary_type.capitalize %>?</p>
+
+			<div id="button">
+				<%= submit_tag "Enable Message", :id => "button", :class => "button" %>
+			</div>
+
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Create a <%= link_to 'new message', {:action => 'new'} %> or go back to
+<%= link_to 'all messages', {:action => 'list'} %>

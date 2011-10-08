@@ -1,0 +1,28 @@
+<% @page_title = 'Disable Message' %>
+
+<%= form_for(:message, :url => {:action => 'disabled', :id => @message.id}) do |f| %>
+ 
+	<ul>						
+
+		<li class="clearfix"> 
+			
+		<p>Are you sure you want to disable this <%= @message.message_type + ' for ' + @message.anniversary_type %>?</p>
+
+			<div id="button">
+				<%= submit_tag "Disable Message", :id => "button", :class => "button" %>
+			</div>
+
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Create a <%= link_to 'new message', {:action => 'new'} %> or go back to
+<%= link_to 'all messages', {:action => 'list'} %>

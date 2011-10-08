@@ -1,0 +1,28 @@
+<% @page_title = "Disable #{@anniversary.celebrity.first_name}'s #{@anniversary.anniversary_type.capitalize} Anniversary" %>
+
+<%= form_for(:anniversary, :url => {:action => 'disabled', :id => @anniversary.id, :celebrity_id => @anniversary.celebrity.id}) do |f| %>
+ 
+	<ul>						
+
+		<li class="clearfix"> 
+			
+		<p>Are you sure you want to disable <%= @anniversary.celebrity.first_name %>'s this <%= @anniversary.anniversary_type %> anniversary ... ?</p>
+
+			<div id="button">
+				<%= submit_tag "Disable Anniversary", :id => "button", :class => "button" %>
+			</div>
+
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Create a <%= link_to "new anniversary for #{@celebrity.first_name} ", {:action => 'new', :celebrity_id => @celebrity.id} %> or go back to
+<%= link_to "all anniversaries for #{@celebrity.first_name}", {:action => 'list', :celebrity_id => @celebrity.id} %>

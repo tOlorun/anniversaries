@@ -1,0 +1,29 @@
+<% @page_title = "Create new anniversary for #{@anniversary.celebrity.first_name}" %>
+
+<%= form_for(:anniversary, :url => {:action => 'create'}, :celebrity_id => @celebrity.id) do |f| %>
+ 
+	<ul>						
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<li class="clearfix"> 
+			
+		<%#p id='mail_success' class='success'>Thank you. I'll get back to you as soon as possible.</p>
+		<p id='mail_fail' class='error'>Sorry, an error has occured. Please try again later.</p%>
+
+			<div id="button">
+				<%= submit_tag "Create Anniversary", :class => "button" %>
+			</div>
+		</li>
+
+	</ul>
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Go back to <%= link_to "#{@anniversary.celebrity.first_name}'s" ' ... ', {:action => 'list', :celebrity_id => @celebrity.id}, :class => 'action list'  %> <%#=  %>

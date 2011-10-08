@@ -1,0 +1,59 @@
+<% @page_title = 'Anniversaries' %>
+
+<h1><%= "#{@celebrity.first_name}'s Anniversaries" %></h1>
+<% # rules="all" %>
+<% if !@anniversaries.blank? %>
+<table>
+  <thead>
+    <tr>
+      <th>Anniversary Type</th>
+      <th>Anniversary Date</th>
+      <th>Special Message</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @anniversaries.each do |anniversary| %>
+    <tr>
+      <td>
+        <% if anniversary.status == 'enabled' %>
+          <%= link_to(anniversary.anniversary_type, {:action => 'show', :id => anniversary.id, :celebrity_id => anniversary.celebrity_id}, :class => 'show') %>
+        <% else %>
+          <%= anniversary.anniversary_type %>
+        <% end %>
+      </td>
+      <td><%= anniversary.anniversary_date.to_s %></td>
+      <td><%= anniversary.message.blank? %></td>
+      <td><%= anniversary.status %></td>
+  <% if anniversary.status == 'enabled' %>
+        <td class="actions">
+          <%= link_to("Edit", {:action => 'edit', :id => anniversary.id, :celebrity_id => anniversary.celebrity_id}, :class => 'action edit') %>
+          <%#= link_to(image_tag("Aurelius/icons/icon_edit.png"), {:action => 'edit', :id => celebrity.id}) %>
+        </td>
+        <td class="actions">
+          <%= link_to("Disable", {:action => 'disable', :id => anniversary.id, :celebrity_id => anniversary.celebrity_id}, :class => 'action disable') %>
+        </td>
+  <% else %>
+        <td class="actions">
+          <%= link_to("Enable", {:action => 'enable', :id => anniversary.id, :celebrity_id => anniversary.celebrity_id}, :class => 'action enable') %>
+        </td>
+  <% end %>
+    </tr>
+  <% end %>
+</tbody>
+<tfoot>
+</tfoot>
+</table>
+<% else %>
+<p><%= "There are no anniversaries for #{@celebrity.first_name}" %></p>
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+
+Create <%= link_to "New Anniversary for #{@celebrity.first_name}", {:action => 'new', :celebrity_id => @celebrity.id} %> | Go back to <%= link_to "#{@celebrity.first_name}'s Profile", {:controller => 'celebrities', :action => 'show', :id => @celebrity.id} %>

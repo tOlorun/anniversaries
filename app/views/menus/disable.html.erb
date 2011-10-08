@@ -1,0 +1,29 @@
+<% @page_title = 'Disable Menu' %>
+
+<%= form_for(:menu, :url => {:action => 'disabled', :id => @menu.id}) do |f| %>
+ 
+	<ul>						
+
+		<li class="clearfix"> 
+			
+		<p>Are you sure you want to disable this "<strong><%= @menu.name %></strong>" menu item ... ?</p>
+		<!-- <p>Are you sure you want to disable this <%#= @menu.name + ' under ' + @menu.parent.name + ' and haveing the following child menus : '  %>?</p> -->
+
+			<div id="button">
+				<%= submit_tag "Disable Menu", :id => "button", :class => "button" %>
+			</div>
+
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+Create a <%= link_to 'new menu', {:action => 'new'} %> or go back to
+<%= link_to 'all menus', {:action => 'list'} %>

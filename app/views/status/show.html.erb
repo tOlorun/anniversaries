@@ -1,0 +1,50 @@
+<% @page_title = @celebrity.last_name + "'s Profile" %>
+
+<ul id="show">
+
+	<li class="clearfix">
+		<label>First Name</label>
+		<span><%= @celebrity.first_name %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Last Name</label>
+		<span><%= @celebrity.last_name %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Other Names</label>
+		<span><%= @celebrity.other_names %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix">
+		<label>Primary Email</label>
+		<span><%= @celebrity.primary_email %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Other Emails</label>
+		<span><%= @celebrity.other_emails %></span>
+		<div class="clear"></div>
+	</li> 
+
+	<li class="clearfix"> 
+		<label>Mobile</label>
+		<span><%= @celebrity.mobile %></span>
+		<div class="clear"></div>
+	</li>
+
+</ul>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+You can <%= link_to("disable this celebrity", {:action => 'disable', :id => @celebrity.id}, :class => 'action disable') %> or<%= link_to("edit this celebrity", {:action => 'edit', :id => @celebrity.id}, :class => 'action edit') %> | Create a <%= link_to 'new celebrity', {:action => 'new'} %> or go back to
+<%= link_to 'all celebrities', {:action => 'list'}, :class => 'action list' %>

@@ -1,0 +1,36 @@
+<% @page_title = @anniversary.celebrity.last_name + "'s Anniversaries" %>
+
+<ul id="show">
+
+	<li class="clearfix">
+		<label>Anniversary Type</label>
+		<span><%= @anniversary.anniversary_type %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Anniversary Date</label>
+		<span><%= @anniversary.anniversary_date %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Message</label>
+		<span><%= @anniversary.message %></span>
+		<div class="clear"></div>
+	</li>
+
+</ul>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+You can <%= link_to("disable this anniversary", {:action => 'disable', :id => @anniversary.id, :celebrity_id => @anniversary.celebrity_id}, :class => 'action disable') %> 
+
+or<%= link_to("edit this anniversary", {:action => 'edit', :id => @anniversary.id, :celebrity_id => @anniversary.celebrity_id}, :class => 'action edit') %>
+<br />or<br />
+Create a <%= link_to 'new anniversary', {:action => 'new', :celebrity_id => @anniversary.celebrity_id} %> or go back to
+<%= link_to 'all anniversaries', {:action => 'list', :celebrity_id => @anniversary.celebrity_id}, :class => 'action list' %>

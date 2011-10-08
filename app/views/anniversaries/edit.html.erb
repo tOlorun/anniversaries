@@ -1,0 +1,25 @@
+<% @page_title = "Edit #{@anniversary.celebrity.first_name}'s #{@anniversary.anniversary_type} Anniversary" %>
+
+<%= form_for(:anniversary, :url => {:action => 'update', :id => @anniversary.id}) do |f| %>
+ 
+	<ul>
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<li class="clearfix"> 
+
+			<div id="button">
+				<%= submit_tag "Update Anniversary", :id => "button", :class => "button" %>
+			</div>
+		</li>		
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+Create a <%= link_to "new anniversary for #{@anniversary.celebrity.first_name} ", {:action => 'new', :celebrity_id => @anniversary.celebrity.id} %> or go back to
+<%= link_to "all anniversaries for #{@anniversary.celebrity.first_name}", {:action => 'list', :celebrity_id => @anniversary.celebrity.id} %>

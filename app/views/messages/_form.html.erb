@@ -1,0 +1,30 @@
+<%= error_messages_for(@message) %>
+
+<li class="clearfix">
+	<%= f.label :anniversary_type, "Anniversary Type" %>
+	<%= f.text_field( :anniversary_type ) %>
+	<div class="clear"></div>
+	<%#p id='name_error' class='error'>Insert a Name</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :message_type, "Message Type" %>
+	<div class="input">		
+		<%= f.radio_button :message_type, :flash %> Flash (flash sms)
+	</div>
+	<div class="input">
+		<%= f.radio_button :message_type, :long %> Long (email)
+	</div>
+	<div class="input">		
+		<%= f.radio_button :message_type, :short %> Short (sms)
+	</div>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :message, "Message" %>
+	<%= f.text_area :message %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>

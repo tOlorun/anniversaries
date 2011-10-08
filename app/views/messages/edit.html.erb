@@ -1,0 +1,29 @@
+<% @page_title = "Edit #{@message.message_type} Message for #{@message.anniversary_type} ..." %>
+
+<%= form_for(:message, :url => {:action => 'update', :id => @message.id}) do |f| %>
+ 
+	<ul>						
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<li class="clearfix"> 
+			
+		<%#p id='mail_success' class='success'>Thank you. I'll get back to you as soon as possible.</p>
+		<p id='mail_fail' class='error'>Sorry, an error has occured. Please try again later.</p%>
+
+			<div id="button">
+				<%= submit_tag "Update Message", :class => "button" %>
+			</div>
+		</li>
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+
+Create a <%= link_to 'new message', {:action => 'new'} %> or go back to
+<%= link_to 'all messages', {:action => 'list'}, :class => 'action list' %>

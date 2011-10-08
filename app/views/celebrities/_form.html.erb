@@ -1,0 +1,53 @@
+<%= error_messages_for(@celebrity) %>
+
+<li class="clearfix">
+	<%= f.label :first_name, "First Name" %>
+	<%= f.text_field :first_name %>
+	<div class="clear"></div>
+	<%#p id='name_error' class='error'>Insert a Name</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :last_name, "Last Name" %>
+	<%= f.text_field :last_name %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :sex, "Sex" %>
+	<div class="input">
+		<%= f.radio_button :sex, :female %> Female<br />
+		<%= f.radio_button :sex, :male %> Male
+	</div>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :other_names, "Other Names" %>
+	<%= f.text_field :other_names %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix">
+	<%= f.label :primary_email, "Primary Email" %>
+	<%= f.text_field :primary_email %>
+	<div class="clear"></div>
+	<%#p id='subject_error' class='error'>Enter a message subject</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :other_emails, "Other Emails" %>
+	<%= f.text_field :other_emails %>
+	<div class="clear"></div>
+	<%#p id='message_error' class='error'>Enter a message</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :mobile, "Mobile" %>
+	<%= f.text_field :mobile %>
+	<div class="clear"></div>
+	<%#p id='message_error' class='error'>Enter a message</p%>
+</li>

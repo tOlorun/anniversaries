@@ -1,0 +1,24 @@
+<%= error_messages_for(@anniversary) %>
+
+<%= f.hidden_field :celebrity_id, :value => @celebrity.id %>
+
+<li class="clearfix">
+	<%= f.label :anniversary_type, "Anniversary Type" %>
+	<%= f.select( :anniversary_type, @anniversary_types.collect {|a_t| [a_t.anniversary_type, a_t.anniversary_type]}, :allow_blank => "Select Anniversary Type"  ) %>
+	<div class="clear"></div>
+	<%#p id='name_error' class='error'>Insert a Name</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :anniversary_date, "Anniversary Date" %>
+	<%= f.date_select :anniversary_date, {:discard_year => true} %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :message, "Message" %>
+	<%= f.text_area :message %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>

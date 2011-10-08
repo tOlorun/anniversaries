@@ -1,0 +1,50 @@
+<%= error_messages_for(@menu) %>
+<li class="clearfix">
+	<%= f.label :name, "Menu Name" %>
+	<%= f.text_field :name %>
+	<div class="clear"></div>
+	<%#p id='name_error' class='error'>Insert a Name</p%>
+</li>
+
+<li class="clearfix">
+	<%= f.label :order, "Menu Order" %>
+	<%= f.select :order, 1..@menu_count %>
+
+	<div class="clear"></div>
+	<%#p id='name_error' class='error'>Insert a Name</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :alias, "Menu Alias" %>
+	<%= f.text_field :alias %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :perma_link, "Permanent Link" %>
+	<%= f.text_field :perma_link %>
+	<div class="clear"></div>
+	<%#p id='email_error' class='error'>Enter a valid email address</p%>
+</li>
+
+<li class="clearfix">
+	<%= f.label :route, "Menu Route" %>
+	<%= f.text_field :route %>
+	<div class="clear"></div>
+	<%#p id='subject_error' class='error'>Enter a message subject</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :parent, "Parent Menu" %>
+	<%= f.text_field :parent %>
+	<div class="clear"></div>
+	<%#p id='message_error' class='error'>Enter a message</p%>
+</li>
+
+<li class="clearfix"> 
+	<%= f.label :status, "Status" %>
+	<%= f.text_field :status %>
+	<div class="clear"></div>
+	<%#p id='message_error' class='error'>Enter a message</p%>
+</li>

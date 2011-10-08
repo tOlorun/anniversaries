@@ -1,0 +1,63 @@
+<% @page_title = @menu.name.capitalize + ' Menu Item' + " a.k.a " + @menu.alias.capitalize %>
+
+<ul id="show">
+
+	<li class="clearfix">
+		<label>Menu Name</label>
+		<span><%= @menu.name.capitalize %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix">
+		<label>Menu Order</label>
+		<span><%= @menu.order %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Menu Alias</label>
+		<span><%= @menu.alias.capitalize %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Route</label>
+		<span><%= @menu.route %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Permanent Link</label>
+		<span><%= @menu.perma_link %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Status</label>
+		<span><%= @menu.status %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Parent Menu</label>
+		<span><%#= @menu.perma_link %></span>
+		<div class="clear"></div>
+	</li>
+
+	<li class="clearfix"> 
+		<label>Child Menus</label>
+		<span><%#= @menu.parent.name %></span>
+		<div class="clear"></div>
+	</li>
+
+
+</ul>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+<br />
+
+You can <%= link_to("disable this menu", {:action => 'disable', :id => @menu.id}, :class => 'action disable') %> or<%= link_to("edit this menu", {:action => 'edit', :id => @menu.id}, :class => 'action edit') %> | Create a <%= link_to 'new menu', {:action => 'new'} %> or go back to
+<%= link_to 'all menus', {:action => 'list'}, :class => 'action list' %>

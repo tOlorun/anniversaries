@@ -1,0 +1,26 @@
+<% @page_title = "Edit #{@celebrity.first_name}'s Profile" %>
+
+<%= form_for(:celebrity, :url => {:action => 'update', :id => @celebrity.id}) do |f| %>
+ 
+	<ul>						
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<li class="clearfix">
+
+			<div id="button">
+				<%= submit_tag "Update Celebrity", :id => "button", :class => "button" %>
+			</div>
+		</li>		
+
+	</ul> 
+
+<% end %>
+
+<br />
+
+<div class="hr dotted clearfix">&nbsp;</div>
+
+
+Create a <%= link_to 'new celebrity', {:action => 'new'} %> or go back to
+<%= link_to 'all celebrities', {:action => 'list'}, :class => 'action list' %>
